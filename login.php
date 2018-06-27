@@ -24,13 +24,14 @@
 
 		<div id="content">
 
-			<?php
-				if (isset($error)) { echo '<div class="alert alert-error"> ' . $error . ' </div> ' ;} 
-			?>
+
 
 			<div id="form">
 				<form method="post" action="libs/login_users.php">
 					<h2>Register Here</h2>
+                    			<?php
+				if (isset($error)) { echo '<div class="alert alert-error"> ' . $error . ' </div> ' ;} 
+			?>
 					<div class="form_elements">
 						<label for="Username">Username</label><br>
 						<input type="text" name="usermane" id="usermane">
