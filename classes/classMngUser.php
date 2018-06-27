@@ -23,7 +23,7 @@ class MngUser{
 		$values = array($username, $password, $ip_address, $time, $date);
 		$query->execute($values);
 		$counts = $query-> rowCount();
-        print("Effacement de $count lignes.\n");
+        print("Effacement de $counts lignes.\n");
 //		return $counts;
         $counts="Mario mario";
 //        var_dump("Hello");
@@ -42,18 +42,26 @@ class MngUser{
 	function GetUserInfo($username){
 
 		$query= $this->link->query("SELECT * FROM users WHERE username='$username'");
-		$rowcount= $query->rowCount();
-
-		if($rowcount == 1){
-
-			$result =$query->fetchAll();
-			return $result;
-		}
-
-		else {
-
-			return $rowcount;
-		}
+		$rowcount= $query->fetchAll();
+        $nameuser = count($rowcount);
+        
+        
+        // Utilisation des tuples :
+        foreach( $rowcount as $user )
+        {
+            echo $user['username']. "user real"; // ...
+        }
+        
+//		if($rowcount >0){
+//
+//			$result =$query->fetchAll();
+//			return $result;
+//		}
+//
+//		else {
+//
+//			return $rowcount;
+//		}
 
 	}
 
